@@ -4,6 +4,7 @@ import React from "react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import Image from "next/image";
+import { AuthLoading } from "convex/react";
 
 const Header = () => {
   return (
@@ -29,6 +30,8 @@ const Header = () => {
           <SignedIn>
             <UserButton />
           </SignedIn>
+
+          <AuthLoading>Loading...</AuthLoading>
         </div>
       </div>
     </div>

@@ -1,20 +1,25 @@
 "use client";
 
-import { useMutation, useQuery } from "convex/react";
+import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
-import { Button } from "@/components/ui/button";
+import { DocumentCard } from "./document-card";
+import CreateDocumentButton from "./create-document-button";
 
 export default function Home() {
-  const tasks = useQuery(api.tasks.get);
-  const createTask = useMutation(api.tasks.createTask);
+  const documents = useQuery(api.documents.getDocuments);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      {tasks?.map(({ _id, title }) => <div key={_id}>{title}</div>)}
+    <main className="p-24 space-y-8">
+      <div className="flex justify-between">
+        <h1 className="text-4xl font-bold">My Documents</h1>
+        <CreateDocumentButton />
+      </div>
 
-      <Button onClick={() => createTask({ title: "New Task" })}>
-        Create task
-      </Button>
+      <div className="grid grid-cols-4 gap-8">
+        {documents?.map((document) => (
+          <DocumentCard key={document._id} document={document} />
+        ))}
+      </div>
     </main>
   );
 }
