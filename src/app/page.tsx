@@ -10,9 +10,9 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      {tasks?.map(({ _id, text }) => <div key={_id}>{text}</div>)}
+      {tasks?.map(({ _id, title }) => <div key={_id}>{title}</div>)}
 
-      <button onClick={() => createTask({ text: "New Task" })}>
+      <button onClick={() => createTask({ title: "New Task" })}>
         Create task
       </button>
 
