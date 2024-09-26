@@ -21,10 +21,12 @@ const formSchema = z.object({
   title: z.string().min(2, {
     message: "Title must be at least 2 characters.",
   }),
+  file: z.instanceof(File),
 });
 
 export function UploadDocumentForm({ onUpload }: { onUpload: () => void }) {
   const createTask = useMutation(api.documents.createDocument);
+  const generateUploadUrl = useMutation(api.documents.generateUploadUrl);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -34,7 +36,18 @@ export function UploadDocumentForm({ onUpload }: { onUpload: () => void }) {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    createTask({ title: values.title });
+    // Step 1: Get a short-lived upload URL
+    const postUrl = await generateUploadUrl();
+    // Step 2: POST the file to the URL
+    const result = await fetch(postUrl, {
+      method: "POST",
+      headers: { "Content-Type": values.file.type },
+      body: values.file,
+    });
+    const { storageId } = await result.json();
+
+    // Step 3: Save the newly allocated storage id to the database
+    createTask({ title: values.title, fileId: storageId });
     onUpload();
   }
 
@@ -49,6 +62,29 @@ export function UploadDocumentForm({ onUpload }: { onUpload: () => void }) {
               <FormLabel>Title</FormLabel>
               <FormControl>
                 <Input placeholder="Sales report" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="file"
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          render={({ field: { value, onChange, ...fieldprops } }) => (
+            <FormItem>
+              <FormLabel>File</FormLabel>
+              <FormControl>
+                <Input
+                  {...fieldprops}
+                  type="file"
+                  accept=".txt, .xml, .doc"
+                  onChange={(event) => {
+                    const file = event.target.files?.[0];
+                    onChange(file);
+                  }}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
