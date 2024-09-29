@@ -211,3 +211,15 @@ export const askQuestionAction = action({
     return response;
   },
 });
+
+export const deleteDocument = mutation({
+  args: { documentId: v.id("documents") },
+  handler: async (ctx, args) => {
+    const docAccessObj = await hasAccessToDocument(ctx, args.documentId);
+
+    if (!docAccessObj) return null;
+
+    await ctx.storage.delete(docAccessObj.document.fileId);
+    await ctx.db.delete(args.documentId);
+  },
+});
