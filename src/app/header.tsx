@@ -11,8 +11,8 @@ const Header = () => {
   return (
     <div className=" bg-slate-800  py-4">
       <div className="container mx-auto flex justify-between items-center">
-        <Link href="/">
-          <div className="flex items-center gap-4 text-2xl">
+        <div className="flex gap-12 items-center">
+          <Link href="/" className="flex items-center gap-4 text-2xl">
             <Image
               src="/logo.png"
               width={40}
@@ -20,9 +20,14 @@ const Header = () => {
               className="rounded"
               alt="an image of a brain"
             />
-            AI-DOC
-          </div>
-        </Link>
+            AIDOC
+          </Link>
+          <nav>
+            <Link href="/" className="hover:text-slate-300">
+              Documents
+            </Link>
+          </nav>
+        </div>
         <div className="flex gap-2">
           <ModeToggle />
 
