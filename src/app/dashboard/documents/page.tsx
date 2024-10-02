@@ -4,9 +4,9 @@ import { useQuery } from "convex/react";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
-import CreateDocumentButton from "../../upload-document-button";
 import { DocumentCard } from "../../document-card";
 import { api } from "../../../../convex/_generated/api";
+import CreateDocumentButton from "./upload-document-button";
 
 export default function Home() {
   const documents = useQuery(api.documents.getDocuments);
