@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@/src/components/ui/button";
-import { btnIconStyles, btnStyles } from "@/src/styles/styles";
+import { Button } from "@/components/ui/button";
+import { btnIconStyles, btnStyles } from "@/styles/styles";
 import { useMutation } from "convex/react";
 import { TrashIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -14,10 +14,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/src/components/ui/dialog";
-import LoadingBtn from "@/src/components/loading-button";
-import { Id } from "@/convex/_generated/dataModel";
-import { api } from "@/convex/_generated/api";
+} from "@/components/ui/dialog";
+import LoadingBtn from "@/components/loading-button";
+import { Id } from "../../../../../convex/_generated/dataModel";
+import { api } from "../../../../../convex/_generated/api";
 
 export function DeleteDocumentButton({
   documentId,

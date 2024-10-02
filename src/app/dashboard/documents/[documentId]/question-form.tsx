@@ -9,11 +9,11 @@ import {
   FormField,
   FormItem,
   FormMessage,
-} from "@/src/components/ui/form";
-import LoadingBtn from "@/src/components/loading-button";
-import { Input } from "@/src/components/ui/input";
-import { Id } from "@/convex/_generated/dataModel";
-import { api } from "@/convex/_generated/api";
+} from "@/components/ui/form";
+import LoadingBtn from "@/components/loading-button";
+import { Input } from "@/components/ui/input";
+import { Id } from "../../../../../convex/_generated/dataModel";
+import { api } from "../../../../../convex/_generated/api";
 
 const formSchema = z.object({
   text: z.string().min(1).max(1050),

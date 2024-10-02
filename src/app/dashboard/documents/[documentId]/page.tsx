@@ -3,15 +3,10 @@ import { useQuery } from "convex/react";
 import ChatPanel from "./chat-panel";
 
 import { DeleteDocumentButton } from "./delete-document-button";
-import { Id } from "@/convex/_generated/dataModel";
-import { api } from "@/convex/_generated/api";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/src/components/ui/tabs";
-import { Skeleton } from "@/src/components/ui/skeleton";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Id } from "../../../../../convex/_generated/dataModel";
+import { api } from "../../../../../convex/_generated/api";
 
 export default function DocumentPage({
   params,
@@ -25,7 +20,7 @@ export default function DocumentPage({
   });
 
   return (
-    <main className="p-24 space-y-8">
+    <main className="w-full space-y-8">
       {!document ? (
         <div className="space-y-8">
           <div>

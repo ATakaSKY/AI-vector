@@ -2,7 +2,7 @@
 
 import React from "react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { ModeToggle } from "@/src/components/ui/mode-toggle";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 import Image from "next/image";
 import { AuthLoading } from "convex/react";
 import Link from "next/link";
@@ -23,7 +23,7 @@ const Header = () => {
             AIDOC
           </Link>
           <nav>
-            <Link href="/" className="hover:text-slate-300">
+            <Link href="/dashboard" className="hover:text-slate-300">
               Documents
             </Link>
           </nav>

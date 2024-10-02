@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "@/src/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -7,10 +7,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/src/components/ui/dialog";
+} from "@/components/ui/dialog";
 import { UploadDocumentForm } from "./upload-document-form";
 import { UploadIcon } from "lucide-react";
-import { btnIconStyles, btnStyles } from "@/src/styles/styles";
+import { btnIconStyles, btnStyles } from "@/styles/styles";
 
 const CreateDocumentButton = () => {
   const [open, setIsOpen] = useState(false);

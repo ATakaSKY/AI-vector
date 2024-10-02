@@ -1,9 +1,9 @@
 "use client";
 import { useQuery } from "convex/react";
 import { QuestionForm } from "./question-form";
-import { Id } from "@/convex/_generated/dataModel";
-import { api } from "@/convex/_generated/api";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
+import { api } from "../../../../../convex/_generated/api";
+import { Id } from "../../../../../convex/_generated/dataModel";
 
 export default function ChatPanel({
   documentId,
