@@ -1,12 +1,17 @@
 "use client";
 import { useQuery } from "convex/react";
-import { Id } from "../../../../convex/_generated/dataModel";
-import { api } from "../../../../convex/_generated/api";
 import ChatPanel from "./chat-panel";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Skeleton } from "@/components/ui/skeleton";
 import { DeleteDocumentButton } from "./delete-document-button";
+import { Id } from "@/convex/_generated/dataModel";
+import { api } from "@/convex/_generated/api";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/src/components/ui/tabs";
+import { Skeleton } from "@/src/components/ui/skeleton";
 
 export default function DocumentPage({
   params,

@@ -4,8 +4,8 @@ import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { DocumentCard } from "./document-card";
 import CreateDocumentButton from "./upload-document-button";
-import { Card } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Card } from "@/src/components/ui/card";
+import { Skeleton } from "@/src/components/ui/skeleton";
 import Image from "next/image";
 
 export default function Home() {

@@ -11,11 +11,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from "@/src/components/ui/form";
+import { Input } from "@/src/components/ui/input";
 import { useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
-import LoadingBtn from "@/components/loading-button";
+import LoadingBtn from "@/src/components/loading-button";
 
 const formSchema = z.object({
   title: z.string().min(2, {

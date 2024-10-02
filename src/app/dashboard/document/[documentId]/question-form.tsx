@@ -1,5 +1,4 @@
 "use client";
-import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAction } from "convex/react";
 import { useForm } from "react-hook-form";
@@ -10,10 +9,11 @@ import {
   FormField,
   FormItem,
   FormMessage,
-} from "@/components/ui/form";
-import LoadingBtn from "@/components/loading-button";
-import { Id } from "../../../../convex/_generated/dataModel";
-import { api } from "../../../../convex/_generated/api";
+} from "@/src/components/ui/form";
+import LoadingBtn from "@/src/components/loading-button";
+import { Input } from "@/src/components/ui/input";
+import { Id } from "@/convex/_generated/dataModel";
+import { api } from "@/convex/_generated/api";
 
 const formSchema = z.object({
   text: z.string().min(1).max(1050),
